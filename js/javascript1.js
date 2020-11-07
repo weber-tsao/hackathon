@@ -1,7 +1,7 @@
 "use strict";
 
 // timer function
-document.getElementById("gameStart").addEventListener("click", function(){
+document.getElementById("starttimer").addEventListener("click", function(){
   var timeleft = 60;
   var downloadTimer = setInterval(function function1(){
   document.getElementById("countdown").innerHTML = timeleft + 
