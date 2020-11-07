@@ -62,8 +62,6 @@ function getClickedMouseXY(e) {
   return {x: mx, y: my};
   }
   
-
-
 // events
 
 document.getElementById("myCanvas").onmousemove = getMousePos;
