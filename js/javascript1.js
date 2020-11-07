@@ -13,7 +13,7 @@ document.getElementById("startgame").addEventListener("click", function(){
       clearInterval(downloadTimer);
       document.getElementById("countdown").innerHTML = "Time is up!"
   }
-  }, 500);
+  }, 1000);
   console.log(countdown);
 });
 
