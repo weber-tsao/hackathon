@@ -1,14 +1,20 @@
 "use strict";
 
 var a = document.getElementsByTagName('input');
-var count = 60;
+var count = 62;
 
-function myFunction() {
+function countDown() {
   count--;
   a[0].value = count;
+
+  if (count == 61) {
+    a[0].value = "Start";
+  } else if (count <= 0) {
+    a[0].value = "End";
+  }
 }
 
-setInterval(myFunction, 1000); //load images
+setInterval(countDown, 1000); //load images
 
 var imagesArr;
 
