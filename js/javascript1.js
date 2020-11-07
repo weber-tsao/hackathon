@@ -40,4 +40,5 @@ function randomPosition(){          // generate random position for cursor to ap
 
 // event
 
-document.addEventListener("mousemove", checkPosition())
+var i = document.addEventListener("mousemove", checkPosition())
+console.log(i)
