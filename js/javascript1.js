@@ -1,16 +1,17 @@
 "use strict";
 
+// timer function
 var a = document.getElementsByTagName('input')
 var count = 62;
 function countDown(){
- count--;
- a[0].value = count;
-if(count==61){
+  count--;
+  a[0].value = count;
+  if(count==61){
 	a[0].value="Start"
-}
-else if(count<=0){
+  }
+  else if(count<=0){
 	a[0].value="End"
-}
+  }
 }
 setInterval(countDown, 1000)
 
