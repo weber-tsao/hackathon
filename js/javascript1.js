@@ -59,10 +59,13 @@ function getClickedMouseXY(e) {
   offsetY += h;
   var mx = Math.round(e.clientX-offsetX);
   var my = Math.round(e.clientY-offsetY);
+  console.log(mx);
+  console.log(my);
   return {x: mx, y: my};
   }
   
 // events
 
 document.getElementById("myCanvas").onmousemove = getMousePos;
+c.addEventListener('click', function(evt) {getClickedMouseXY(evt)});
 
