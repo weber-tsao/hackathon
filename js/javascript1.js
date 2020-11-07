@@ -1,6 +1,16 @@
 "use strict";
 
-//set up for canvas
+var a = document.getElementsByTagName('input')
+var count = 60;
+function myFunction(){
+ count--;
+a[0].value = count;
+}
+setInterval(myFunction,1000)
+
+
+
+//vars
 
 var c=document.getElementById('myCanvas');
 var ctx=c.getContext('2d');	
