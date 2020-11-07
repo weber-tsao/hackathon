@@ -1,7 +1,7 @@
 "use strict";
 
 // timer function
-document.getElementById("starttimer").addEventListener("click", function(){
+document.getElementById("startTimer").addEventListener("click", function(){
   var timeleft = 60;
   var downloadTimer = setInterval(function function1(){
   document.getElementById("countdown").innerHTML = timeleft + 
@@ -34,7 +34,7 @@ var randPositionY = 0;
 
 function randomPosition(){          // generate random position for cursor to approach 
     ctx.clearRect(0,0,myCanvas.width,myCanvas.height);
-    randPositionX = Math.floor(Math.random() * canvas.width);;
+    randPositionX = Math.floor(Math.random() * canvas.width);
     randPositionY = Math.floor(Math.random() * canvas.height);
 }
 
