@@ -1,16 +1,17 @@
 "use strict"; // timer function
 
-document.getElementById("startTimer").addEventListener("click", function () {
+document.getElementById("startgame").addEventListener("click", function () {
+  document.getElementById("startgame").style.visibility = 'hidden';
   var timeleft = 60;
   var downloadTimer = setInterval(function function1() {
-    document.getElementById("countdown").innerHTML = timeleft + "&nbsp" + "seconds remaining";
+    document.getElementById("countdown").innerHTML = "Time remain : " + timeleft + "&nbsp" + "seconds";
     timeleft -= 1;
 
     if (timeleft <= 0) {
       clearInterval(downloadTimer);
       document.getElementById("countdown").innerHTML = "Time is up!";
     }
-  }, 1000);
+  }, 500);
   console.log(countdown);
 }); //set canvas
 
