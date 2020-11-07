@@ -81,6 +81,5 @@ function getClickedMouseXY(e) {
   }
   
 
-// event
-
+// events
 document.getElementById("myCanvas").onmousemove = findMouseCoordsOnCanv;
