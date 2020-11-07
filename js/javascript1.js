@@ -39,37 +39,15 @@ function randomPosition(){          // generate random position for cursor to ap
     randPositionY = Math.floor(Math.random() * canvas.height);
 }
 
-function findMouseCoordsOnCanv(mouseEvent) // this returns xpos, y pos of mouse on canvas
-{
-  var c = document.getElementById("myCanvas");
-  var c_left = 0;
-  var c_top = 0;
-  var xpos;
-  var ypos;
-  while (c.offsetParent)
-  {
-    c_left += c.offsetLeft;
-    c_top += c.offsetTop;
-    c = c.offsetParent;
+function getMousePos(canvas, evt) {
+  var rect = canvas.getBoundingClientRect();
+  return {
+    x: evt.clientX - rect.left,
+    y: evt.clientY - rect.top
   }
-  if (mouseEvent)
-  {
-    //FireFox
-    xpos = mouseEvent.pageX;
-    ypos = mouseEvent.pageY;
-  }
-  else
-  {
-    //IE
-    xpos = window.event.x + document.body.scrollLeft - 2;
-    ypos = window.event.y + document.body.scrollTop - 2;
-  }
-  xpos -= c_left;
-  ypos -= c_top;
-  document.getElementById("myCanvas").innerHTML = xpos + ", " + ypos;
 }
 
-function getClickedMouseXY(e) {
+function getClickedMouseXY(e) { 
   var canvas = document.getElementById("myCanvas");
   var boundingRect = canvas.getBoundingClientRect();
   var offsetX = boundingRect.left;
@@ -83,9 +61,7 @@ function getClickedMouseXY(e) {
   return {x: mx, y: my};
   }
   
-
-
 // events
 
-document.getElementById("myCanvas").onmousemove = findMouseCoordsOnCanv;
+document.getElementById("myCanvas").onmousemove = getMousePos;
 
