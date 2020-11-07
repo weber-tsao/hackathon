@@ -44,7 +44,7 @@ function getMousePos(canvas, evt) {
   }
 }
 
-function getClickedMouseXY(e) {
+function getClickedMouseXY(e) { 
   var canvas = document.getElementById("myCanvas");
   var boundingRect = canvas.getBoundingClientRect();
   var offsetX = boundingRect.left;
