@@ -24,8 +24,7 @@ document.getElementById("gameStart").addEventListener("click", function(){
 //set canvas
 var c = document.getElementById('myCanvas');
 var ctx = c.getContext('2d');	
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+
 
 
 //vars
@@ -68,9 +67,26 @@ function findMouseCoordsOnCanv(mouseEvent) // this returns xpos, y pos of mouse 
   }
   xpos -= c_left;
   ypos -= c_top;
-  return xpos, ypos
+  document.getElementById("myCanvas").innerHTML = xpos + ", " + ypos;
 }
 
-// event
+function getClickedMouseXY(e) {
+  var canvas = document.getElementById("myCanvas");
+  var boundingRect = canvas.getBoundingClientRect();
+  var offsetX = boundingRect.left;
+  var offsetY = boundingRect.top;
+  var w = (boundingRect.width-canvas.width)/2;
+  var h = (boundingRect.height-canvas.height)/2;
+  offsetX += w;
+  offsetY += h;
+  var mx = Math.round(e.clientX-offsetX);
+  var my = Math.round(e.clientY-offsetY);
+  return {x: mx, y: my};
+  }
+  
+
+
+// events
 
 document.getElementById("myCanvas").onmousemove = findMouseCoordsOnCanv;
+
