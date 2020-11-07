@@ -1,5 +1,13 @@
 "use strict";
 
+var a = document.getElementsByTagName('input')
+var count = 60;
+function myFunction(){
+ count--;
+a[0].value = count;
+}
+setInterval(myFunction,1000)
+
 //load images
 var imagesArr
 function preLoad(){
