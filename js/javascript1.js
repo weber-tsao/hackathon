@@ -28,6 +28,8 @@ var ctx = c.getContext('2d');
 //vars
 var randPositionX = 0;
 var randPositionY = 0;
+var currentPositionX = 0;
+var currentPositionY = 0;
 
 
 //functions
@@ -38,11 +40,14 @@ function randomPosition(){          // generate random position for cursor to ap
     randPositionY = Math.floor(Math.random() * canvas.height);
 }
 
-function getMousePos(canvas, evt) {
-  var rect = canvas.getBoundingClientRect();
+function getMousePos(evt) {
+  var canvas = document.getElementById("myCanvas");
+  var boundingRect = canvas.getBoundingClientRect();
+  var offsetX = boundingRect.left;
+  var offsetY = boundingRect.top;
   return {
-    x: evt.clientX - rect.left,
-    y: evt.clientY - rect.top
+    x: evt.clientX - offsetX,
+    y: evt.clientY - offsetY
   }
 }
 
@@ -59,11 +64,16 @@ function getClickedMouseXY(e) {
   var my = Math.round(e.clientY-offsetY);
   console.log(mx);
   console.log(my);
+
   return {x: mx, y: my};
   }
   
+  function findCurrentMousePosition(e) {
+    var x = e.clientX;
+    var y = e.clientY;
+    var coor = "Coordinates: (" + x + "," + y + ")";
+    document.getElementById("demo").innerHTML = coor;
+  }
 // events
-
-document.getElementById("myCanvas").onmousemove = getMousePos;
 c.addEventListener('click', function(evt) {getClickedMouseXY(evt)});
 
