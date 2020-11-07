@@ -13,7 +13,6 @@ document.getElementById("starttimer").addEventListener("click", function(){
       document.getElementById("countdown").innerHTML = "Time is up!"
   }
   }, 1000);
-
   console.log(countdown);
 });
 
