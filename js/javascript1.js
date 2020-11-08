@@ -54,14 +54,16 @@ function calcDistance(){
 }
 
 function playAudio(){
-if (distance <= 30){
+if (distance <= 50){
   audio.playbackRate = 5;
-}else if (30 < distance && distance <= 200){
+}else if (50 < distance && distance <= 150){
   audio.playbackRate = 2;
-}else if (200 < distance && distance <= 900){
+}else if (150 < distance && distance <= 350){
+  audio.playbackRate = 1.5;
+}else if (350 < distance && distance <= 600){
   audio.playbackRate = 1;
 }else{
-  audio.playbackRate = 0.5;
+  audio.playbackRate = 0.65;
 }
 document.getElementById("distance").innerHTML = distance;
 audio.play()
