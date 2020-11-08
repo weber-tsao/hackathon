@@ -26,42 +26,46 @@ var currentPositionX = 0;
 var currentPositionY = 0;
 var clickedPositionX = 0;
 var clickedPositionY = 0;
+var audio = new Audio("./asset/audio/comehere.mp3")
 
 //functions
 
 function randomPosition(){          // generate random position for cursor to approach 
     randPositionX = Math.floor(Math.random() * window.innerWidth);
     randPositionY = Math.floor(Math.random() * window.innerHeight);
-    return randPositionX, randPositionX
+    return {
+      randPositionX, randPositionX
+    }
 }
 
 function getMousePos(evt) {
   return {
-    x: evt.clientX,
-    y: evt.clientY
+    currentPositionX: evt.clientX,
+    currentPositionY: evt.clientY
   }
 }
 
-function checkCurrentPos(evt) {
-  getMousePos(evt);
-  return {
-    currentPositionX = x,
-    currentPositionY = y
+function calcDistance(){
+  var distance = Math.sqrt(Math.pow((currentPositionX-randPositionX), 2) - Math.pow((currentPositionY-randPositionY), 2))
+  if (distance < 100) {
+    audio.play();
+  }else if (200 <= distance < 300){
+    audio.play();
+  }else if (300 <= distance < 500){
+    audio.play();
+  }else{
+    audio.play();
   }
 }
 
-function checkClickPos(evt) {
-  getMousePos(evt);
-  return {
-    clickedPositionX = x,
-    clickedPositionY = y
-  }
-}
 
-//Math.sqrt(Math.pow((x-randPositionX), 2) - Math.pow((y-randPositionY), 2))
+
 
 // events
-document.addEventListener('mousemove', checkCurrentPos(evt));
-document.addEventListener('click', checkClickPos(evt));
+
+document.addEventListener('mousemove', calcDistance);
+randomPosition();
+
+//document.addEventListener('click', );
 
 
