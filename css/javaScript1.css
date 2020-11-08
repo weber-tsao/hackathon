@@ -1,20 +1,57 @@
-#myImageId { visibility: hidden; }
-
-input{
-	border: 3px solid rgba(57, 57, 224, 0.561);
-	text-align: center;
-	margin-left: 627px;
-	margin-bottom: 10px;
-	padding: 10px;
+#myImageId {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 
-p{
-	text-align: left;
-	margin-left: 10px;
-	margin-bottom: 2px;
-	margin-top: 1px;
-	color: green;
-	font-weight: bold;
-	font-size: 50px;
-	font-family:Arial,sans-serif;
+input {
+    border: 3px solid rgba(57, 57, 224, 0.561);
+    text-align: center;
+    margin-left: 627px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+p {
+    text-align: left;
+    margin-left: 10px;
+    margin-bottom: 2px;
+    margin-top: 1px;
+    color: green;
+    font-weight: bold;
+    font-size: 50px;
+    font-family: Arial, sans-serif;
+}
+
+#countdown {
+    color: green;
+    font-size: 30px;
+    text-align: left;
+}
+
+#startGame {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    top: 70%;
+    left: ;
+    right: 0;
+    margin: auto;
+}
+
+#center {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-left: 50%;
 }
