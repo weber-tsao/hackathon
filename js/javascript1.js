@@ -47,7 +47,7 @@ function getMousePos(evt) {
 
 function calcDistance(){
   var distance = Math.sqrt(Math.pow((currentPositionX-randPositionX), 2) - Math.pow((currentPositionY-randPositionY), 2))
-  if (distance < 100) {
+  if (distance < 200) {
     audio.play();
   }else if (200 <= distance < 300){
     audio.play();
