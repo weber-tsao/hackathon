@@ -1,6 +1,7 @@
 "use strict";
 
 // timer function
+function timer(){
 document.getElementById("startgame").addEventListener("click", function(){
   document.getElementById("startgame").style.visibility = 'hidden';
   var timeleft = 60;
@@ -16,7 +17,7 @@ document.getElementById("startgame").addEventListener("click", function(){
   }, 1000);
   console.log(countdown);
 });
-
+}
 
 
 //vars
@@ -48,19 +49,19 @@ function getMousePos(evt) {
 }
 
 function calcDistance(){
-  distance = Math.sqrt(Math.pow((currentPositionX-randPositionX), 2) - Math.pow((currentPositionY-randPositionY), 2))
+  distance = Math.sqrt(Math.pow((currentPositionX-randPositionX), 2) + Math.pow((currentPositionY-randPositionY), 2))
   return distance
 }
 
 function playAudio(){
-if (distance < 100){
+if (distance < 200){
+  audio.playbackRate = 10
+}else if (200 <= distance < 450){
   audio.playbackRate = 3
-}else if (100 <= distance < 250){
-  audio.playbackRate = 2
-}else if (250 <= distance < 500){
+}else if (450 <= distance < 600){
   audio.playbackRate = 1
 }else{
-  audio.playbackRate = 0.8
+  audio.playbackRate = 0.2
 }
 document.getElementById("distance").innerHTML = distance;
 audio.play()
@@ -69,10 +70,10 @@ audio.play()
 
 
 // events
-
+timer();
 document.addEventListener('mousemove', calcDistance);
 document.addEventListener('mousemove', getMousePos);
-setInterval(playAudio, 300)
+setInterval(playAudio, 100)
 randomPosition();
 
 //document.addEventListener('click', );
