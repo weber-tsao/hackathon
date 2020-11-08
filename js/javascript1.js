@@ -26,44 +26,53 @@ var currentPositionX = 0;
 var currentPositionY = 0;
 var clickedPositionX = 0;
 var clickedPositionY = 0;
+var distance = 10000;
 var audio = new Audio("./asset/audio/comehere.mp3")
 
 //functions
 
 function randomPosition(){          // generate random position for cursor to approach 
-    randPositionX = Math.floor(Math.random() * window.innerWidth);
-    randPositionY = Math.floor(Math.random() * window.innerHeight);
+    randPositionX = Math.random() * window.innerWidth;
+    randPositionY = Math.random() * window.innerHeight;
     return {
       randPositionX, randPositionX
     }
 }
 
 function getMousePos(evt) {
+  currentPositionX = evt.clientX;
+  currentPositionY = evt.clientY;
   return {
-    currentPositionX: evt.clientX,
-    currentPositionY: evt.clientY
+    currentPositionX, currentPositionX
   }
 }
 
 function calcDistance(){
-  var distance = Math.sqrt(Math.pow((currentPositionX-randPositionX), 2) - Math.pow((currentPositionY-randPositionY), 2))
-  if (distance < 200) {
-    audio.play();
-  }else if (200 <= distance < 300){
-    audio.play();
-  }else if (300 <= distance < 500){
-    audio.play();
-  }else{
-    audio.play();
-  }
+  distance = Math.sqrt(Math.pow((currentPositionX-randPositionX), 2) - Math.pow((currentPositionY-randPositionY), 2))
+  return distance
 }
 
+function playAudio(){
+if (distance < 100){
+  audio.playbackRate = 3
+}else if (100 <= distance < 250){
+  audio.playbackRate = 2
+}else if (250 <= distance < 500){
+  audio.playbackRate = 1
+}else{
+  audio.playbackRate = 0.8
+}
+document.getElementById("distance").innerHTML = distance;
+audio.play()
+}
 
 
 
 // events
 
 document.addEventListener('mousemove', calcDistance);
+document.addEventListener('mousemove', getMousePos);
+setInterval(playAudio, 300)
 randomPosition();
 
 //document.addEventListener('click', );
