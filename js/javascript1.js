@@ -24,7 +24,8 @@ var randPositionX = 0;
 var randPositionY = 0;
 var currentPositionX = 0;
 var currentPositionY = 0;
-
+var clickedPositionX = 0;
+var clickedPositionY = 0;
 
 //functions
 
@@ -40,8 +41,27 @@ function getMousePos(evt) {
     y: evt.clientY
   }
 }
-  
+
+function checkCurrentPos(evt) {
+  getMousePos(evt);
+  return {
+    currentPositionX = x,
+    currentPositionY = y
+  }
+}
+
+function checkClickPos(evt) {
+  getMousePos(evt);
+  return {
+    clickedPositionX = x,
+    clickedPositionY = y
+  }
+}
+
+//Math.sqrt(Math.pow((x-randPositionX), 2) - Math.pow((y-randPositionY), 2))
 
 // events
-c.addEventListener('click', function(evt) {getClickedMouseXY(evt)});
+document.addEventListener('mousemove', checkCurrentPos(evt));
+document.addEventListener('click', checkClickPos(evt));
+
 
