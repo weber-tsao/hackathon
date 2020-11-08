@@ -69,6 +69,20 @@ document.getElementById("distance").innerHTML = distance;
 audio.play()
 }
 
+function checkInRange(){
+  if (distance <= 25) victory()
+}
+
+function showImage() {
+  var img = document.getElementById('myImageId');
+  img.style.visibility = "visible";
+  clearInterval(document);
+}
+
+function victory(){
+  showImage();
+  console.log("You have found Gordon. He likes you <3");
+}
 
 
 // events
@@ -78,6 +92,6 @@ document.addEventListener('mousemove', getMousePos);
 setInterval(playAudio, 50)
 randomPosition();
 
-//document.addEventListener('click', );
+document.addEventListener('click', checkInRange);
 
 
