@@ -13,62 +13,30 @@ document.getElementById("startgame").addEventListener("click", function () {
     }
   }, 1000);
   console.log(countdown);
-}); //set canvas
-
-var c = document.getElementById('myCanvas');
-var ctx = c.getContext('2d'); //vars
+}); //vars
 
 var randPositionX = 0;
 var randPositionY = 0;
 var currentPositionX = 0;
-var currentPositionY = 0; //functions
+var currentPositionY = 0;
+var clickedPositionX = 0;
+var clickedPositionY = 0; //functions
 
 function randomPosition() {
   // generate random position for cursor to approach 
-  ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
-  randPositionX = Math.floor(Math.random() * canvas.width);
-  randPositionY = Math.floor(Math.random() * canvas.height);
+  randPositionX = Math.floor(Math.random() * window.innerWidth);
+  randPositionY = Math.floor(Math.random() * window.innerHeight);
+  return randPositionX, randPositionX;
 }
 
 function getMousePos(evt) {
-  var canvas = document.getElementById("myCanvas");
-  var boundingRect = canvas.getBoundingClientRect();
-  var offsetX = boundingRect.left;
-  var offsetY = boundingRect.top;
-  return {
-    x: evt.clientX - offsetX,
-    y: evt.clientY - offsetY
-  };
-}
-
-function getClickedMouseXY(e) {
-  var canvas = document.getElementById("myCanvas");
-  var boundingRect = canvas.getBoundingClientRect();
-  var offsetX = boundingRect.left;
-  var offsetY = boundingRect.top;
-  var w = (boundingRect.width - canvas.width) / 2;
-  var h = (boundingRect.height - canvas.height) / 2;
-  offsetX += w;
-  offsetY += h;
-  var mx = Math.round(e.clientX - offsetX);
-  var my = Math.round(e.clientY - offsetY);
-  console.log(mx);
-  console.log(my);
-  return {
-    x: mx,
-    y: my
-  };
-}
-
-function findCurrentMousePosition(e) {
-  var x = e.clientX;
-  var y = e.clientY;
-  var coor = "Coordinates: (" + x + "," + y + ")";
-  document.getElementById("demo").innerHTML = coor;
-} // events
+  currentPositionX = evt.clientX;
+  currentPositionY = evt.clientY;
+  console.log(currentPositionX);
+  console.log(currentPositionY);
+} //Math.sqrt(Math.pow((x-randPositionX), 2) - Math.pow((y-randPositionY), 2))
+// events
 
 
-c.addEventListener('click', function (evt) {
-  getClickedMouseXY(evt);
-});
+document.addEventListener('mousemove', getMousePos);
 //# sourceMappingURL=javascript1.dev.js.map

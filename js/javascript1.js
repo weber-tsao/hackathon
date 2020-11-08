@@ -36,32 +36,17 @@ function randomPosition(){          // generate random position for cursor to ap
 }
 
 function getMousePos(evt) {
-  return {
-    x: evt.clientX,
-    y: evt.clientY
-  }
-}
-
-function checkCurrentPos(evt) {
-  getMousePos(evt);
-  return {
-    currentPositionX = x,
-    currentPositionY = y
-  }
-}
-
-function checkClickPos(evt) {
-  getMousePos(evt);
-  return {
-    clickedPositionX = x,
-    clickedPositionY = y
-  }
+    currentPositionX = evt.clientX;
+    currentPositionY = evt.clientY;
+    console.log(currentPositionX);
+    console.log(currentPositionY);
+  
 }
 
 //Math.sqrt(Math.pow((x-randPositionX), 2) - Math.pow((y-randPositionY), 2))
 
 // events
-document.addEventListener('mousemove', checkCurrentPos(evt));
-document.addEventListener('click', checkClickPos(evt));
+document.addEventListener('mousemove', getMousePos);
+
 
 
