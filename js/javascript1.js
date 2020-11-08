@@ -54,14 +54,14 @@ function calcDistance(){
 }
 
 function playAudio(){
-if (distance < 200){
-  audio.playbackRate = 10
-}else if (200 <= distance < 450){
-  audio.playbackRate = 3
-}else if (450 <= distance < 600){
-  audio.playbackRate = 1
+if (distance <= 30){
+  audio.playbackRate = 5;
+}else if (30 < distance && distance <= 200){
+  audio.playbackRate = 2;
+}else if (200 < distance && distance <= 900){
+  audio.playbackRate = 1;
 }else{
-  audio.playbackRate = 0.2
+  audio.playbackRate = 0.5;
 }
 document.getElementById("distance").innerHTML = distance;
 audio.play()
@@ -73,7 +73,7 @@ audio.play()
 timer();
 document.addEventListener('mousemove', calcDistance);
 document.addEventListener('mousemove', getMousePos);
-setInterval(playAudio, 100)
+setInterval(playAudio, 50)
 randomPosition();
 
 //document.addEventListener('click', );
